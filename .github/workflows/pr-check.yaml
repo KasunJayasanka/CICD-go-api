@@ -13,6 +13,11 @@ jobs:
         run: |
           echo "Hello world"
       - uses: actions/checkout@v2
+      - name: build the docker image
+        env:
+          TAG: ${{github.sha}}
+        run: |
+          docker build -t yashodperera/go-demo:$TAG .
    
 
         
